@@ -4,11 +4,14 @@ const fs = require('fs');
 const os = require('os');
 const notes = require('./notes.js');
 const _ = require('lodash');
+const yargs = require('yargs');
+
+const argv = yargs.argv;
 
 var command = process.argv[2];
-//var filteredArray = _.uniq(['Henrique', 1, 'Henrique', 1, 2, 3, 3, 4, 4, 5, 7]);
 console.log('Command: ', command);
-console.log(process.argv);
+console.log('Process', process.argv);
+console.log('Yargs', argv);
 
 if (command === 'add'){
 	console.log('Adding new note...');
