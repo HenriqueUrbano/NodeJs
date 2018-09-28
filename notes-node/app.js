@@ -25,13 +25,3 @@ if (command === 'add'){
  else{
 	console.log('Command not recognized');
  };
-//var res = notes.addNote();
-//var calc = notes.add(7, 6);
-//console.log(res);
-//var user = os.userInfo();
-
-//fs.appendFile('greetings.txt', `Hello ${user.username} ! You are ${notes.age}`, function (err){
-//	if (err){
-//		console.log('Unable to write to file');
-//	}
-//});
