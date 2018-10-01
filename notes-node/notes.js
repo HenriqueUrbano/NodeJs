@@ -37,14 +37,24 @@ var addNote = (title, body) => {
 
 var getAll = () => {
 	var result = fetchNotes();
-	console.log(result);
+	console.log(`Printing ${result.length} notes`);
+	console.log('--')
+	result.forEach((note)=>{
+		console.log(`Title: ${note.title}`);
+		console.log(`Text: ${note.body}`)
+		console.log('--');
+		});
 };
 
 var getNote = (title) => {
 	var notes = fetchNotes();
 	var filteredNote = notes.filter((note) => note.title === title);
-	console.log(`Title: ${filteredNote.title}`);
-	console.log(filteredNote.body)
+	if(filteredNote.length > 0){
+		console.log(`Title: ${filteredNote[0].title}`);
+		console.log(filteredNote[0].body);
+	} else{
+		console.log('Note not found!');
+	}
 };
 
 var removeNote = (title) => {
