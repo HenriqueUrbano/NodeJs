@@ -2,6 +2,7 @@ console.log('Starting notes.js');
 
 const fs = require('fs');
 
+//Return the notes file. If empty leaves it blank
 var fetchNotes = () => {
 	try{
 		var notesstring = fs.readFileSync('notes-data.json');
@@ -12,10 +13,12 @@ var fetchNotes = () => {
 		}
 };
 
+//Write the notes into the notes storage file
 var saveNotes = (notes) =>{
 	fs.writeFileSync('notes-data.json', JSON.stringify(notes));
 }
 
+//Adds a new note to the file
 var addNote = (title, body) => {
 	var notes = fetchNotes();
 	var note = {
@@ -35,6 +38,7 @@ var addNote = (title, body) => {
 	}	
 };
 
+//Returns all notes
 var getAll = () => {
 	var result = fetchNotes();
 	console.log(`Printing ${result.length} notes`);
@@ -46,6 +50,7 @@ var getAll = () => {
 		});
 };
 
+//Returns a specific note, based on the user's input
 var getNote = (title) => {
 	var notes = fetchNotes();
 	var filteredNote = notes.filter((note) => note.title === title);
@@ -57,6 +62,7 @@ var getNote = (title) => {
 	}
 };
 
+//Removes a note from the storage
 var removeNote = (title) => {
 	var notes = fetchNotes();
 	var filteredNotes = notes.filter((note) => note.title !== title);
@@ -68,6 +74,7 @@ var removeNote = (title) => {
 	}
 };
 
+//Exports all the commands to the main fille
 module.exports = {
 	addNote,
 	getAll,
